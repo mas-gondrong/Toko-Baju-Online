@@ -39,3 +39,8 @@ function tampilkanProduk(produk) {
 }
 
 export { ambilSemuaProduk };
+
+<script type="module">
+  import { ambilSemuaProduk } from './js/produk-db.js';
+  ambilSemuaProduk();
+</script>
