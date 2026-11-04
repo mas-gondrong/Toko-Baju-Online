@@ -185,11 +185,70 @@
     <i class="fas fa-shopping-cart"></i>
     <span>Keranjang</span>
   </a>
-  <a href="akun.html">
-    <i class="fas fa-user"></i>
-    <span>Akun</span>
+  <a href="#" onclick="bukaAkun(); return false;" class="active">
+  <i class="fas fa-user"></i>
+  <span>Akun</span>
   </a>
 </nav>
+  
+ <!-- ===== HALAMAN AKUN FULL SCREEN ===== -->
+<div class="akun-modal" id="akunModal">
+  <div class="akun-header">
+    <h2>Akun</h2>
+    <button class="akun-close" onclick="tutupAkun()">×</button>
+  </div>
 
+  <div class="akun-body">
+    <ul class="akun-menu">
+      <li>
+        <a href="admin.html" class="admin-link">
+          <i class="fas fa-cog"></i>
+          Buka Panel Admin
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fas fa-heart"></i>
+          Wishlist
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fas fa-shopping-bag"></i>
+          Pesanan Saya
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fas fa-map-marker-alt"></i>
+          Alamat Pengiriman
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <i class="fas fa-user-edit"></i>
+          Edit Profil
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+  <script>
+    function bukaAkun() {
+  document.getElementById('akunModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function tutupAkun() {
+  document.getElementById('akunModal').classList.remove('show');
+  document.body.style.overflow = 'auto';
+
+    }
+  </script>
 </body>
 </html>
