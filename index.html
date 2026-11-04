@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#e63946">
+  <title>Toko Baju Online</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">👗 TokoBaju</div>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#produk">Produk</a>
+      <a href="#keranjang">🛒 <span id="cart-count">0</span></a>
+      <a href="#akun">Akun</a>
+    </nav>
+  </header>
+
+  <!-- Konten Utama -->
+  <main>
+    <section id="beranda">
+      <h1>Selamat Datang di Toko Baju Online</h1>
+      <p>Pilihan baju terbaru & berkualitas</p>
+      <button onclick="navigateTo('produk')">Lihat Produk</button>
+    </section>
+
+    <section id="produk" class="hidden">
+      <h2>Katalog Produk</h2>
+      <div id="product-list" class="grid-produk"></div>
+    </section>
+
+    <section id="keranjang" class="hidden">
+      <h2>Keranjang Belanja</h2>
+      <div id="cart-items"></div>
+      <div class="total">Total: Rp <span id="cart-total">0</span></div>
+      <button onclick="checkout()">Checkout</button>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2026 Toko Baju Online — Semua Hak Dilindungi</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+  <script>
+    // Daftarkan Service Worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(reg => console.log('SW terdaftar ✅', reg.scope))
+          .catch(err => console.log('SW gagal ❌', err));
+      });
+    }
+  </script>
+</body>
+</html>
