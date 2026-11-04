@@ -701,9 +701,45 @@ function switchTab(tabName) {
   document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
   document.getElementById(`tab-${tabName}`).classList.add('active');
 }
+
 </script>
+  
 <!-- Firebase SDK -->
 <script type="module" src="firebase-config.js"></script>
 
+  <script type="module">
+  import { db } from './firebase-config.js';
+  import { push, ref, set } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+  document.querySelector('.btn-success').addEventListener('click', simpanProduk);
+
+  function simpanProduk(e) {
+    e.preventDefault();
+    
+    const nama = document.querySelector('input[placeholder="Contoh: Kaos Polos Premium"]').value;
+    const harga = parseInt(document.querySelector('input[placeholder="Contoh: 79000"]').value);
+    const diskon = parseInt(document.querySelector('input[placeholder="Contoh: 40"]').value) || 0;
+    const stok = parseInt(document.querySelector('input[placeholder="Jumlah barang"]').value) || 0;
+    const foto = document.querySelector('input[placeholder="https://..."]').value;
+    const deskripsi = document.querySelector('textarea').value;
+    
+    const produkRef = push(ref(db, 'produk/'));
+    set(produkRef, {
+      id: produkRef.key,
+      nama: nama,
+      harga: harga,
+      hargaAsli: Math.round(harga * (100 / (100 - diskon))),
+      diskon: diskon,
+      stok: stok,
+      foto: foto,
+      deskripsi: deskripsi,
+      terjual: 0
+    }).then(() => {
+      alert('✅ Produk berhasil disimpan!');
+    }).catch((error) => {
+      alert('❌ Error: ' + error.message);
+    });
+  }
+</script>
 </body>
 </html>
