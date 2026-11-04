@@ -3,121 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#e63946">
-  <meta name="description" content="Toko Baju Online — Belanja mudah, aman, dan nyaman">
-  <title>TokoBaju — Fashion Online</title>
+  <meta name="theme-color" content="#ee4d2d">
+  <title>TokoBaju — Belanja Online</title>
   
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/icon-192x192.png">
   
-  <!-- Font Awesome Ikon -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   
-  <!-- Gaya Utama -->
+  <!-- Style Utama -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
-  <div class="top-bar">
-    <a href="#" class="logo">
-      <i class="fas fa-tshirt"></i> TokoBaju
-    </a>
-    <div class="nav-actions">
-      <a href="keranjang.html" title="Keranjang Belanja">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge">0</span>
-      </a>
-      <a href="akun.html" title="Akun Saya">
-        <i class="fas fa-user-circle"></i>
-      </a>
-    </div>
+<!-- HEADER & SEARCH -->
+<div class="header">
+  <div class="search-bar">
+    <i class="fas fa-search search-icon"></i>
+    <input type="text" placeholder="Cari produk favoritmu...">
   </div>
-</header>
+  <div class="header-icons">
+    <a href="keranjang.html"><i class="fas fa-shopping-cart"></i></a>
+    <a href="akun.html"><i class="fas fa-user"></i></a>
+  </div>
+</div>
 
-<!-- KONTEN UTAMA -->
-<main>
-  <!-- HERO BANNER -->
-  <section class="hero">
-    <h1>Fashion Terbaru di Ujung Jari ✨</h1>
-    <p>Koleksi baju pria & wanita berkualitas dengan harga terbaik. Belanja jadi lebih mudah dan menyenangkan!</p>
-    <a href="produk.html" class="btn-primary">Lihat Semua Produk</a>
-  </section>
+<!-- Jarak ke bawah header -->
+<div style="height: 90px;"></div>
 
-  <!-- KATEGORI -->
-  <section>
-    <h2 class="section-title">Kategori Populer</h2>
-    <div class="categories">
-      <a href="produk.html" class="category-card">
-        <i class="fas fa-th-large"></i>
-        <span>Semua</span>
-      </a>
-      <a href="produk.html" class="category-card">
-        <i class="fas fa-female"></i>
-        <span>Wanita</span>
-      </a>
-      <a href="produk.html" class="category-card">
-        <i class="fas fa-male"></i>
-        <span>Pria</span>
-      </a>
-      <a href="produk.html" class="category-card">
-        <i class="fas fa-tshirt"></i>
-        <span>Atasan</span>
-      </a>
-    </div>
-  </section>
+<!-- BANNER -->
+<div class="banner">
+  <img src="https://picsum.photos/id/1059/800/300" alt="Banner Promo">
+</div>
 
-  <!-- PRODUK TERBARU -->
-  <section>
-    <h2 class="section-title">
-      Produk Terbaru
-      <a href="produk.html">Lihat Semua →</a>
-    </h2>
-    <div class="products-grid">
-      
-      <!-- Produk 1 -->
-      <a href="detail-produk.html" class="product-card">
-        <img src="https://picsum.photos/id/21/400/300" alt="Kaos Putih Polos" class="product-img">
-        <div class="product-info">
-          <h3 class="product-name">Kaos Putih Polos Premium</h3>
-          <p class="product-price">Rp 79.000</p>
-        </div>
-      </a>
+<!-- KATEGORI -->
+<div class="categories">
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-th-large"></i>
+    <span>Semua</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-female"></i>
+    <span>Wanita</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-male"></i>
+    <span>Pria</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-tshirt"></i>
+    <span>Atasan</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-socks"></i>
+    <span>Aksesoris</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-snowflake"></i>
+    <span>Musim Dingin</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-fire"></i>
+    <span>Promo</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-star"></i>
+    <span>Terlaris</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-clock"></i>
+    <span>Terbaru</span>
+  </a>
+  <a href="produk.html" class="category-item">
+    <i class="fas fa-tag"></i>
+    <span>Diskon</span>
+  </a>
+</div>
 
-      <!-- Produk 2 -->
-      <a href="detail-produk.html" class="product-card">
-        <img src="https://picsum.photos/id/22/400/300" alt="Kemeja Flanel" class="product-img">
-        <div class="product-info">
-          <h3 class="product-name">Kemeja Flanel Lengan Panjang</h3>
-          <p class="product-price">Rp 149.000</p>
-        </div>
-      </a>
+<!-- PRODUK TERBARU -->
+<div class="section-title">
+  <span>Produk Terbaru</span>
+  <a href="produk.html">Lihat Semua →</a>
+</div>
 
-      <!-- Produk 3 -->
-      <a href="detail-produk.html" class="product-card">
-        <img src="https://picsum.photos/id/23/400/300" alt="Blouse Wanita Elegan" class="product-img">
-        <div class="product-info">
-          <h3 class="product-name">Blouse Wanita Elegan</h3>
-          <p class="product-price">Rp 125.000</p>
-        </div>
-      </a>
+<div class="products-container">
+  <div class="products-grid">
+    
+    <!-- PRODUK 1 -->
+    <a href="detail.html?id=1" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/21/400/400" alt="Kaos Putih Polos" class="product-image">
+        <span class="product-discount">-40%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Kaos Putih Polos Premium Katun Combed 30s</h3>
+        <p class="product-price">Rp 79.000 <small>Rp 129.000</small></p>
+        <p class="product-sold">1,2rb Terjual</p>
+      </div>
+    </a>
 
-      <!-- Produk 4 -->
-      <a href="detail-produk.html" class="product-card">
-        <img src="https://picsum.photos/id/24/400/300" alt="Hoodie Jaket Pria" class="product-img">
-        <div class="product-info">
-          <h3 class="product-name">Hoodie Jaket Pria Modern</h3>
-          <p class="product-price">Rp 199.000</p>
-        </div>
-      </a>
+    <!-- PRODUK 2 -->
+    <a href="detail.html?id=2" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/22/400/400" alt="Kemeja Flanel" class="product-image">
+        <span class="product-discount">-25%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Kemeja Flanel Lengan Panjang Pria Motif Kotak</h3>
+        <p class="product-price">Rp 149.000 <small>Rp 199.000</small></p>
+        <p class="product-sold">856 Terjual</p>
+      </div>
+    </a>
 
-    </div>
-  </section>
-</main>
+    <!-- PRODUK 3 -->
+    <a href="detail.html?id=3" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/23/400/400" alt="Blouse Wanita Elegan" class="product-image">
+        <span class="product-discount">-30%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Blouse Wanita Elegan Modern Bahan Katun</h3>
+        <p class="product-price">Rp 125.000 <small>Rp 179.000</small></p>
+        <p class="product-sold">2,5rb Terjual</p>
+      </div>
+    </a>
 
-<!-- NAVIGASI BAWAH -->
+    <!-- PRODUK 4 -->
+    <a href="detail.html?id=4" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/24/400/400" alt="Hoodie Jaket Pria" class="product-image">
+        <span class="product-discount">-35%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Hoodie Jaket Pria Modern Tebal Lembut</h3>
+        <p class="product-price">Rp 199.000 <small>Rp 299.000</small></p>
+        <p class="product-sold">632 Terjual</p>
+      </div>
+    </a>
+
+    <!-- PRODUK 5 -->
+    <a href="detail.html?id=5" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/25/400/400" alt="Dress Cantik" class="product-image">
+        <span class="product-discount">-45%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Dress Musim Panas Cantik Wanita Elegan</h3>
+        <p class="product-price">Rp 159.000 <small>Rp 289.000</small></p>
+        <p class="product-sold">3,1rb Terjual</p>
+      </div>
+    </a>
+
+    <!-- PRODUK 6 -->
+    <a href="detail.html?id=6" class="product-card">
+      <div class="product-image-wrapper">
+        <img src="https://picsum.photos/id/26/400/400" alt="Celana Jeans" class="product-image">
+        <span class="product-discount">-20%</span>
+      </div>
+      <div class="product-info">
+        <h3 class="product-name">Celana Jeans Pria Slim Fit Stretch Denim</h3>
+        <p class="product-price">Rp 189.000 <small>Rp 235.000</small></p>
+        <p class="product-sold">945 Terjual</p>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- BOTTOM NAVIGATION -->
 <nav class="bottom-nav">
   <a href="index.html" class="active">
     <i class="fas fa-home"></i>
@@ -125,32 +179,17 @@
   </a>
   <a href="produk.html">
     <i class="fas fa-th-large"></i>
-    <span>Produk</span>
+    <span>Kategori</span>
   </a>
   <a href="keranjang.html">
     <i class="fas fa-shopping-cart"></i>
     <span>Keranjang</span>
-  </a>
-  <a href="pesanan.html">
-    <i class="fas fa-receipt"></i>
-    <span>Pesanan</span>
   </a>
   <a href="akun.html">
     <i class="fas fa-user"></i>
     <span>Akun</span>
   </a>
 </nav>
-
-<!-- SERVICE WORKER REGISTRASI -->
-<script>
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ Service Worker terdaftar'))
-      .catch(err => console.log('❌ SW gagal:', err));
-  });
-}
-</script>
 
 </body>
 </html>
