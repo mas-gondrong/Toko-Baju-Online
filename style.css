@@ -1,30 +1,30 @@
-/* ==== VARIABEL ==== */
+/* =====================================
+   STYLE - TOKO BAJU ONLINE (SHOPEE STYLE)
+===================================== */
 :root {
-  --primary: #e63946;
-  --secondary: #1d3557;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow: 0 4px 16px rgba(0,0,0,0.08);
-  --radius: 16px;
-  --radius-sm: 8px;
+  --primary: #ee4d2d;       /* Warna utama Shopee */
+  --secondary: #fb6e2e;
+  --bg-light: #f5f5f5;
+  --white: #ffffff;
+  --dark: #333333;
+  --gray: #999999;
+  --light-gray: #eeeeee;
+  --success: #00c853;
+  --discount: #ff424e;
 }
 
-/* ==== RESET ==== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--bg-light);
   color: var(--dark);
-  line-height: 1.6;
-  padding-bottom: 80px;
+  line-height: 1.4;
+  padding-bottom: 60px;
 }
 
 a {
@@ -32,299 +32,363 @@ a {
   color: inherit;
 }
 
-button {
-  border: none;
-  border-radius: var(--radius-sm);
-  font-size: 1rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.25s ease;
-}
-
 img {
   max-width: 100%;
   display: block;
 }
 
-/* ==== HEADER ==== */
-header {
+button {
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* =====================================
+   HEADER / SEARCH BAR
+===================================== */
+.header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
-  box-shadow: var(--shadow-sm);
+  background: var(--primary);
+  padding: 8px 12px;
   z-index: 100;
 }
 
-.top-bar {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--primary);
+.search-bar {
   display: flex;
   align-items: center;
+  background: var(--white);
+  border-radius: 2px;
+  padding: 6px 10px;
   gap: 8px;
 }
 
-.logo i {
-  font-size: 1.5rem;
+.search-bar input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  color: var(--dark);
+  width: 100%;
 }
 
-.nav-actions {
-  display: flex;
-  gap: 18px;
-  align-items: center;
+.search-bar input::placeholder {
+  color: var(--gray);
 }
 
-.nav-actions a {
-  font-size: 1.4rem;
-  color: var(--secondary);
-  position: relative;
-  padding: 4px;
-}
-
-.nav-actions a:hover {
+.search-icon {
   color: var(--primary);
+  font-size: 16px;
 }
 
-.cart-badge {
-  position: absolute;
-  top: -6px;
-  right: -8px;
-  background: var(--primary);
-  color: #fff;
-  font-size: 0.7rem;
-  min-width: 18px;
-  height: 18px;
-  border-radius: 50%;
+.header-icons {
   display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.header-icons a {
+  color: var(--white);
+  font-size: 20px;
+}
+
+/* =====================================
+   BANNER / SLIDER
+===================================== */
+.banner {
+  background: var(--white);
+  margin: 8px;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.banner img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+/* =====================================
+   KATEGORI
+===================================== */
+.categories {
+  background: var(--white);
+  margin: 8px;
+  padding: 12px;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px 8px;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-weight: 600;
+  font-size: 12px;
+  color: var(--dark);
 }
 
-/* ==== KONTEN UTAMA ==== */
-main {
-  max-width: 1200px;
-  margin: 70px auto 0;
-  padding: 0 20px;
-}
-
-.page {
-  display: none;
-  animation: fadeIn 0.3s ease;
-}
-
-.page.active {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ==== HERO SECTION ==== */
-.hero {
-  background: linear-gradient(135deg, var(--secondary) 0%, #457b9d 100%);
-  border-radius: var(--radius);
-  padding: 48px 24px;
-  color: #fff;
-  text-align: center;
-  margin: 20px 0 40px;
-}
-
-.hero h1 {
-  font-size: 1.75rem;
-  margin-bottom: 12px;
-  line-height: 1.3;
-}
-
-.hero p {
-  font-size: 1rem;
-  opacity: 0.9;
-  margin-bottom: 28px;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: #fff;
-  padding: 12px 32px;
-  font-weight: 600;
-  border-radius: 30px;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(230, 57, 70, 0.35);
-}
-
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--primary);
+.category-item i,
+.category-item img {
+  font-size: 22px;
   color: var(--primary);
-  padding: 10px 28px;
-  border-radius: 30px;
+  margin-bottom: 4px;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
 }
 
-.btn-outline:hover {
-  background: var(--primary);
-  color: #fff;
-}
-
-/* ==== JUDUL BAGIAN ==== */
+/* =====================================
+   JUDUL BAGIAN
+===================================== */
 .section-title {
-  font-size: 1.25rem;
+  padding: 12px 12px 4px;
+  font-size: 15px;
   font-weight: 600;
-  margin-bottom: 20px;
-  color: var(--secondary);
+  color: var(--dark);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .section-title a {
-  font-size: 0.9rem;
+  font-size: 13px;
   color: var(--primary);
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* ==== KATEGORI ==== */
-.categories {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin-bottom: 40px;
+/* =====================================
+   PRODUK GRID — 2 KOLOM
+===================================== */
+.products-container {
+  padding: 8px;
 }
 
-@media (min-width: 576px) {
-  .categories {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  }
-}
-
-.category-card {
-  background: #fff;
-  border-radius: var(--radius);
-  padding: 20px 12px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.25s ease;
-  cursor: pointer;
-  border: 1px solid transparent;
-}
-
-.category-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-  border-color: var(--primary);
-}
-
-.category-card i {
-  font-size: 1.6rem;
-  color: var(--primary);
-  margin-bottom: 8px;
-}
-
-.category-card span {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: var(--secondary);
-  display: block;
-}
-
-/* ==== PRODUK GRID ==== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  margin-bottom: 40px;
-}
-
-@media (min-width: 576px) {
-  .products-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (min-width: 768px) {
-  .products-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  gap: 8px;
 }
 
 .product-card {
-  background: #fff;
-  border-radius: var(--radius);
+  background: var(--white);
+  border-radius: 2px;
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  transition: all 0.25s ease;
-  cursor: pointer;
+  transition: transform 0.15s ease;
 }
 
-.product-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow);
+.product-card:active {
+  transform: translateY(1px);
 }
 
-.product-img {
+.product-image-wrapper {
+  position: relative;
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  padding-top: 100%;
   background: var(--light-gray);
+  overflow: hidden;
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-discount {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(255,66,78,0.9);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 4px;
+  border-radius: 1px;
 }
 
 .product-info {
-  padding: 14px;
+  padding: 8px;
 }
 
 .product-name {
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 13px;
   color: var(--dark);
-  margin-bottom: 6px;
   line-height: 1.4;
-  height: 2.5rem;
+  height: 36px;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin-bottom: 6px;
 }
 
 .product-price {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--primary);
 }
 
 .product-price small {
-  font-size: 0.7rem;
+  font-size: 11px;
   color: var(--gray);
   text-decoration: line-through;
-  margin-left: 6px;
+  margin-left: 4px;
   font-weight: 400;
 }
 
-/* ==== BOTTOM NAVIGATION ==== */
+.product-sold {
+  font-size: 11px;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+/* =====================================
+   HALAMAN DETAIL PRODUK
+===================================== */
+.detail-header {
+  background: var(--white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  z-index: 100;
+}
+
+.detail-header a {
+  font-size: 20px;
+  color: var(--dark);
+}
+
+.detail-image-container {
+  background: var(--light-gray);
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.detail-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background: var(--white);
+}
+
+.detail-content {
+  background: var(--white);
+  margin-top: 8px;
+  padding: 16px;
+}
+
+.detail-name {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--dark);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.detail-price {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.detail-price span {
+  font-size: 14px;
+  color: var(--gray);
+  text-decoration: line-through;
+  margin-left: 8px;
+  font-weight: 400;
+}
+
+.detail-desc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 6px solid var(--bg-light);
+}
+
+.detail-desc h4 {
+  font-size: 15px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.detail-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  padding: 10px 16px;
+  display: flex;
+  gap: 10px;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.08);
+  z-index: 100;
+}
+
+.btn-chat {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--primary);
+  color: var(--primary);
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.btn-cart {
+  flex: 1;
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 14px;
+}
+
+.btn-buy {
+  flex: 1.2;
+  background: var(--primary);
+  color: var(--white);
+  padding: 10px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =====================================
+   BOTTOM NAVIGATION
+===================================== */
 .bottom-nav {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: #ffffff;
-  box-shadow: 0 -2px 12px rgba(0,0,0,0.06);
+  background: var(--white);
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
+  padding: 6px 0;
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.06);
   z-index: 100;
 }
 
@@ -332,32 +396,23 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 0.7rem;
+  font-size: 11px;
   color: var(--gray);
-  padding: 4px 16px;
-  transition: color 0.2s;
+  padding: 4px 10px;
 }
 
 .bottom-nav a i {
-  font-size: 1.3rem;
-  margin-bottom: 4px;
+  font-size: 18px;
+  margin-bottom: 2px;
 }
 
 .bottom-nav a.active {
   color: var(--primary);
 }
 
-/* ==== UTILITAS ==== */
+/* =====================================
+   UTILITAS
+===================================== */
 .text-center { text-align: center; }
-.mt-30 { margin-top: 30px; }
-.mb-30 { margin-bottom: 30px; }
-.empty-state {
-  text-align: center;
-  padding: 60px 20px;
-  color: var(--gray);
-}
-.empty-state i {
-  font-size: 3rem;
-  color: var(--light-gray);
-  margin-bottom: 16px;
-}
+.mt-10 { margin-top: 10px; }
+.mb-10 { margin-bottom: 10px; }
