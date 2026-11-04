@@ -4,58 +4,58 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#e63946">
+  <meta name="description" content="Toko Baju Online — Belanja mudah & aman">
   <title>Toko Baju Online</title>
   <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!-- Navbar -->
-  <header>
-    <div class="logo">👗 TokoBaju</div>
-    <nav>
-      <a href="#beranda">Beranda</a>
-      <a href="#produk">Produk</a>
-      <a href="#keranjang">🛒 <span id="cart-count">0</span></a>
-      <a href="#akun">Akun</a>
-    </nav>
-  </header>
 
-  <!-- Konten Utama -->
-  <main>
-    <section id="beranda">
-      <h1>Selamat Datang di Toko Baju Online</h1>
-      <p>Pilihan baju terbaru & berkualitas</p>
-      <button onclick="navigateTo('produk')">Lihat Produk</button>
-    </section>
+<!-- HEADER -->
+<header>
+  <div class="top-bar">
+    <a href="#" class="logo" onclick="showPage('beranda'); return false;">
+      <i class="fas fa-tshirt"></i> TokoBaju
+    </a>
+    <div class="nav-actions">
+      <a href="#" onclick="showPage('keranjang'); return false;" title="Keranjang">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="nav-cart-count">0</span>
+      </a>
+      <a href="#" onclick="showPage('akun'); return false;" title="Akun">
+        <i class="fas fa-user-circle"></i>
+      </a>
+    </div>
+  </div>
+</header>
 
-    <section id="produk" class="hidden">
-      <h2>Katalog Produk</h2>
-      <div id="product-list" class="grid-produk"></div>
-    </section>
+<!-- KONTEN -->
+<main>
+  <!-- === HALAMAN BERANDA === -->
+  <section id="page-beranda" class="page active">
+    <div class="hero">
+      <h1>Fashion Terbaru di Ujung Jari ✨</h1>
+      <p>Koleksi baju pria & wanita berkualitas dengan harga terbaik. Belanja jadi lebih mudah!</p>
+      <button class="btn-primary" onclick="showPage('produk')">Lihat Semua Produk</button>
+    </div>
 
-    <section id="keranjang" class="hidden">
-      <h2>Keranjang Belanja</h2>
-      <div id="cart-items"></div>
-      <div class="total">Total: Rp <span id="cart-total">0</span></div>
-      <button onclick="checkout()">Checkout</button>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2026 Toko Baju Online — Semua Hak Dilindungi</p>
-  </footer>
-
-  <script src="js/app.js"></script>
-  <script>
-    // Daftarkan Service Worker
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(reg => console.log('SW terdaftar ✅', reg.scope))
-          .catch(err => console.log('SW gagal ❌', err));
-      });
-    }
-  </script>
-</body>
-</html>
+    <h2 class="section-title">Kategori Populer</h2>
+    <div class="categories">
+      <div class="category-card" onclick="filterKategori('semua')">
+        <i class="fas fa-th-large"></i>
+        <span>Semua</span>
+      </div>
+      <div class="category-card" onclick="filterKategori('wanita')">
+        <i class="fas fa-female"></i>
+        <span>Wanita</span>
+      </div>
+      <div class="category-card" onclick="filterKategori('pria')">
+        <i class="fas fa-male"></i>
+        <span>Pria</span>
+      </div>
+      <div class="category-card" onclick="filterKategori('atasan')">
+        <i class="fas fa-tshirt"></i>
+        <span>Atasan</span>
+      </div>
+      <div class="category-card" onclick="filterK
