@@ -252,5 +252,66 @@ function tutupAkun() {
   </script>
   <!-- Firebase SDK -->
 <script type="module" src="firebase-config.js"></script>
+
+<!-- Hubungkan Firebase & Baca Produk -->
+<script type="module">
+  import { db } from './firebase-config.js';
+  import { ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+  // Ambil data produk dari Firebase
+  window.onload = function() {
+    const produkRef = ref(db, 'produk/');
+    
+    onValue(produkRef, (snapshot) => {
+      const data = snapshot.val();
+      const container = document.querySelector('.products-grid') || document.querySelector('.produk-grid') || document.querySelector('.daftar-produk');
+      
+      if (!data) {
+        console.log('Belum ada produk');
+        if (container) container.innerHTML = '<p style="text-align:center;color:#888;padding:20px;">Belum ada produk</p>';
+        return;
+      }
+      
+      if (!container) {
+        console.log('Container produk tidak ketemu! Cek nama class di HTML kamu');
+        return;
+      }
+      
+      // Ubah objek jadi array
+      const daftarProduk = Object.keys(data).map(key => ({
+        id: key,
+        ...data[key]
+      }));
+      
+      // Tampilkan ke halaman
+      container.innerHTML = '';
+      
+      daftarProduk.forEach(item => {
+        const hargaAsli = item.hargaAsli || Math.round(item.harga * 100 / (100 - (item.diskon || 0)));
+        
+        container.innerHTML += `
+          <a href="detail.html?id=${item.id}" style="text-decoration:none;color:inherit;display:block;">
+            <div style="background:white;border-radius:8px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+              <img src="${item.foto || 'https://picsum.photos/id/21/400/300'}" 
+                   alt="${item.nama}" 
+                   style="width:100%;height:200px;object-fit:cover;">
+              ${item.diskon ? `<span style="position:absolute;background:red;color:white;padding:2px 8px;font-size:12px;border-radius:3px;margin:8px;">-${item.diskon}%</span>` : ''}
+              <div style="padding:12px;">
+                <h3 style="font-size:15px;margin:0 0 8px 0;line-height:1.4;">${item.nama}</h3>
+                <p style="font-size:16px;font-weight:700;color:#ee4d2d;margin:4px 0;">
+                  Rp ${(item.harga || 0).toLocaleString('id-ID')}
+                  ${hargaAsli !== item.harga ? `<span style="font-size:12px;color:#999;text-decoration:line-through;margin-left:6px;">Rp ${hargaAsli.toLocaleString('id-ID')}</span>` : ''}
+                </p>
+                <p style="font-size:12px;color:#888;margin:4px 0;">${item.terjual || 0} Terjual</p>
+              </div>
+            </div>
+          </a>
+        `;
+      });
+      
+      console.log('✅ Produk dimuat:', daftarProduk);
+    });
+  };
+</script>
 </body>
 </html>
