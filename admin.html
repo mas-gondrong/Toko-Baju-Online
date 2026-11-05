@@ -733,6 +733,19 @@ function kompresGambar(file, maxLebar = 800, kualitas = 0.7) {
 }
 </script>
 
+  <script type="module">
+  // ===== CEK DI AWAL =====
+  const tombolCek = document.querySelector('.btn-success');
+  if (!tombolCek) {
+    alert('❌ TOMBOL TIDAK DITEMUKAN!');
+  } else {
+    alert('✅ TOMBOL DITEMUKAN! Siap disimpan');
+  }
+  // =======================
+
+  import { db } from './firebase-config.js';
+  // ... sisa kode kamu tetap di bawah ini ...
+
   <!-- 2. PREVIEW FOTO & SIMPAN PRODUK KE FIREBASE -->
 <script type="module">
   import { db } from './firebase-config.js';
