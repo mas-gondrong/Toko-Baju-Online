@@ -526,9 +526,17 @@
       </div>
       
       <div class="form-group">
-        <label>URL Foto Produk</label>
-        <input type="url" placeholder="https://...">
-      </div>
+  <label>Pilih Foto Produk</label>
+  <input type="file" id="fotoProduk" accept="image/*" style="padding:8px;border:1px solid #ddd;border-radius:4px;background:white;">
+  <small style="color:#666;">Foto akan otomatis diperkecil</small>
+</div>
+
+<!-- PREVIEW FOTO -->
+<div class="form-group" id="previewContainer" style="display:none;">
+  <label>Pratinjau Foto:</label>
+  <img id="previewFoto" style="width:100%;max-width:200px;height:auto;border-radius:4px;margin-top:8px;border:1px solid #eee;">
+  <small id="infoUkuran" style="color:#28a745;display:block;margin-top:4px;"></small>
+</div>
       
       <div class="form-group">
         <label>Deskripsi Produk</label>
@@ -702,6 +710,54 @@ function switchTab(tabName) {
   document.getElementById(`tab-${tabName}`).classList.add('active');
 }
 
+  // ===== FUNGSI KOMPRES GAMBAR JADI BASE64 =====
+function kompresGambar(file, maxLebar = 800, kualitas = 0.7) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.type.startsWith('image/')) {
+      return reject(new Error('Bukan file gambar!'));
+    }
+
+    const pembaca = new FileReader();
+    pembaca.onload = function(e) {
+      const img = new Image();
+      img.onload = function() {
+        // Hitung ukuran baru yang proporsional
+        let lebar = img.width;
+        let tinggi = img.height;
+        
+        if (lebar > maxLebar) {
+          const rasio = maxLebar / lebar;
+          lebar = maxLebar;
+          tinggi = Math.round(img.height * rasio);
+        }
+
+        // Gambar ulang di canvas untuk kompres
+        const canvas = document.createElement('canvas');
+        canvas.width = lebar;
+        canvas.height = tinggi;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, lebar, tinggi);
+
+        // Ubah ke base64 format JPEG
+        const base64 = canvas.toDataURL('image/jpeg', kualitas);
+        
+        // Hitung perkiraan ukuran
+        const ukuranAsli = (file.size / 1024).toFixed(1);
+        const ukuranBaru = Math.round((base64.length * 0.75) / 1024);
+        
+        resolve({
+          base64: base64,
+          ukuranAsli: ukuranAsli,
+          ukuranBaru: ukuranBaru
+        });
+      };
+      img.onerror = () => reject(new Error('Gagal memuat gambar'));
+      img.src = e.target.result;
+    };
+    pembaca.onerror = () => reject(new Error('Gagal membaca file'));
+    pembaca.readAsDataURL(file);
+  });
+}
 </script>
   
 <!-- Firebase SDK -->
